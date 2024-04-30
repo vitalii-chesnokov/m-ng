@@ -13,16 +13,16 @@ def kontrolli_arvamist():
     õiged_tähed = sum(1 for täht in arvamus if täht in valitud_sõna) - õiged_positsioonid
     
     for väli in väljade_loend:
-        väli.config(bg="white")
+        väli.config(bg="#008080")
 
     for i in range(len(valitud_sõna)):
         täht = arvamus[i]
         if täht == valitud_sõna[i]:
-            väljade_loend[i].config(bg="green")
+            väljade_loend[i].config(fg="green")
         elif täht in valitud_sõna:
-            väljade_loend[i].config(bg="yellow")
+            väljade_loend[i].config(fg="yellow")
         else:
-            väljade_loend[i].config(bg="black")
+            väljade_loend[i].config(fg="black")
 
 def vali_täht(täht):
     for väli in väljade_loend:
