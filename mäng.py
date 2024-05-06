@@ -2,12 +2,12 @@
 import random
 
 def vali_sõna():
-    with open("words.txt", "r", encoding="utf-8") as fail:
-        sõnad = [rida.strip().lower() for rida in fail.readlines() if rida.strip()]
+    with open("sonad.txt", "r", encoding="utf-8") as fail:
+        sõnad = [rida.lower() for rida in fail.readlines() if rida.strip()]
     return random.choice(sõnad)
 
 def kontrolli_arvamist():
-    arvamus = "".join([väli.get().strip().lower() 
+    arvamus = "".join([väli.get().lower() 
     for väli in väljade_loend])
     õiged_positsioonid = sum(1 for i in range(len(valitud_sõna)) if arvamus[i] == valitud_sõna[i])
     õiged_tähed = sum(1 for täht in arvamus if täht in valitud_sõna) - õiged_positsioonid
@@ -26,7 +26,7 @@ def kontrolli_arvamist():
 
 def vali_täht(täht):
     for väli in väljade_loend:
-        if väli.get().strip() == "":
+        if väli.get() == "":
             väli.delete(0, tk.END)
             väli.insert(0, täht)
             break
